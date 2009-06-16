@@ -1,0 +1,29 @@
+id:   bitlyActionStreams
+key:  bitlyActionStreams
+name: bit.ly Action Streams Plugin
+description: Creates an Action Stream from a user's shortened links on bit.ly.
+version: 1.0
+author_name: David Recordon
+author_link: http://www.davidrecordon.com/
+author_email: david@sixapart.com
+
+profile_services:
+    bitly:
+        name: bit.ly
+        url: http://bit.ly/user/recent/{{ident}}
+        ident_label: bit.ly Username
+        ident_example: daveman692
+        icon: bitly.png
+
+action_streams:
+  bitly:
+      links:
+          name: Bits
+          description: Your recently shortened links
+          html_form: '[_1] shortened the link <a href="[_2]">[_3]</a>'
+          html_params:
+              - url
+              - title
+          url: 'http://bit.ly/user/recent_rss/{{ident}}'
+          identifier: url
+          rss: 1
